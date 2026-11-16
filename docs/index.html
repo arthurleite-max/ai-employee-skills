@@ -91,7 +91,7 @@ a{color:var(--acc)}
       <li>Do <b>not</b> unzip it. Upload the .zip file exactly as it was downloaded.</li>
       <li>In Claude (claude.ai or the app): click your name (bottom left) → <b>Settings</b> → <b>Capabilities</b>. Make sure <b>Create and edit files</b> is on.</li>
       <li>Still in Settings: <b>Customize</b> → <b>Skills</b> tab → <b>+ Add</b> → <b>Upload skill</b> → choose the .zip.</li>
-      <li>Open a new chat and say: <code class="frase"></code></li>
+      <li>Open a new chat and say: <code class="frase-claude"></code> (name the skill the first time, so Claude loads it).</li>
     </ol>
     <div class="warn">Skill upload exists only on Claude (free plan included). ChatGPT Free/Plus and DeepSeek do not accept skill files: on those, use the first tab.</div>
   </div>
@@ -116,6 +116,7 @@ function abrir(s){
   document.getElementById('dt').textContent = s.titulo;
   document.getElementById('dr').textContent = s.resumo;
   document.querySelectorAll('.frase').forEach(e => e.textContent = '"' + s.frase + '"');
+  document.querySelectorAll('.frase-claude').forEach(e => e.textContent = '"Use my ' + s.titulo + ' skill: ' + s.frase + '"');
   document.getElementById('txt').value = s.prompt;
   document.getElementById('zip').href = s.zip;
   aba('p1');

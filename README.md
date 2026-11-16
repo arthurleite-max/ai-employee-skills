@@ -3,16 +3,25 @@
 One skill per AI employee. Each one works with Claude, ChatGPT, Gemini, coding agents (Claude Code, Codex, Cursor...)
 or any AI chat, and answers in your language.
 
-## How to install (3 steps)
+## Start here (1 minute, no install)
 
-1. Pick an employee below and click **download zip**.
-2. Open that employee's folder and follow its **README** (Option 2: upload the skill).
-   On Claude: Settings -> Capabilities -> Skills -> Upload skill.
-3. Start a new conversation and say what the README tells you to say.
+### 👉 [arthurleite-max.github.io/ai-employee-skills](https://arthurleite-max.github.io/ai-employee-skills/)
+
+Pick an employee, click the AI you use (ChatGPT, Gemini, DeepSeek or Claude), paste, send. Done.
+Works on free plans.
+
+## Want it installed for good?
+
+| Where | How |
+|---|---|
+| **Claude** (free plan included) | Download the employee's **.zip** below. **Do not unzip it.** Claude -> Settings -> Capabilities -> turn on *Code execution and file creation* -> Skills -> **Upload skill** -> pick the .zip. |
+| **ChatGPT / Gemini** | They do not accept skill files on Free/Plus. Create a **Project** (ChatGPT) or a **Gem** (Gemini) and paste the employee's `PASTE-INTO-ANY-AI.md` text into its instructions. |
+| **DeepSeek and other chats** | No install possible: use the page above in each new conversation. |
+| **Coding agents** (Claude Code, Codex, Cursor...) | Give the agent the employee's `INSTALL.md`; it installs itself. |
 
 All downloads are also on the [Releases page](https://github.com/arthurleite-max/ai-employee-skills/releases/latest).
 
-| Employee | What it does | Download |
+| Employee | What it does | Download (Claude) |
 |---|---|---|
 | [`ads-manager`](ads-manager/) | An AI skill for business owners who run Meta Ads and Google Ads without a full-time media buyer. | [download zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/ads-manager.zip) |
 | [`competitor-scout`](competitor-scout/) | An AI skill for business owners who want to know what their competitors are doing without spending hours on it. | [download zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/competitor-scout.zip) |

@@ -13,6 +13,8 @@ Pick the AI you use. It takes about one minute and works on free plans.
 
 ## Claude: install it for good
 
+![Watch: from GitHub to Claude](../guide-images/gif-claude.gif)
+
 **1. Download the skill: [market-simulator.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/market-simulator.zip)**. Do **not** unzip it.
 You can also click **download zip** next to Market Simulator in the [list of employees](https://github.com/arthurleite-max/ai-employee-skills#readme).
 
@@ -48,6 +50,8 @@ You can also click **download zip** next to Market Simulator in the [list of emp
 
 ## ChatGPT: copy, paste, and save it in a Project
 
+![Watch: from GitHub to ChatGPT](../guide-images/gif-chatgpt.gif)
+
 **1.** Here on GitHub, open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)** (it is in this folder).
 
 ![The skill folder on GitHub](../guide-images/github-2-folder.jpg)
@@ -68,6 +72,8 @@ You can also click **download zip** next to Market Simulator in the [list of emp
 
 So you never paste again:
 
+![Watch: saving it in a Project](../guide-images/gif-chatgpt-project.gif)
+
 **5.** In the sidebar, hover **Projects** and click **+**. Name it **Market Simulator** and click **Create project**.
 
 ![New project](../guide-images/chatgpt-4-name.jpg)
@@ -87,6 +93,8 @@ So you never paste again:
 ---
 
 ## DeepSeek and any other chat
+
+![Watch: from GitHub to DeepSeek](../guide-images/gif-deepseek.gif)
 
 **1.** Copy the text the same way: open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)** → **Copy raw file**.
 

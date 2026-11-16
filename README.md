@@ -14,7 +14,7 @@ Works on free plans.
 
 | Where | How |
 |---|---|
-| **Claude** (free plan included) | Download the employee's **.zip** below. **Do not unzip it.** Claude -> Settings -> Capabilities -> turn on *Code execution and file creation* -> Skills -> **Upload skill** -> pick the .zip. |
+| **Claude** (free plan included) | Download the employee's **.zip** below. **Do not unzip it.** Claude -> Settings -> Capabilities -> keep *Create and edit files* on -> Customize -> Skills -> **+ Add -> Upload skill** -> pick the .zip. |
 | **ChatGPT / Gemini** | They do not accept skill files on Free/Plus. Create a **Project** (ChatGPT) or a **Gem** (Gemini) and paste the employee's `PASTE-INTO-ANY-AI.md` text into its instructions. |
 | **DeepSeek and other chats** | No install possible: use the page above in each new conversation. |
 | **Coding agents** (Claude Code, Codex, Cursor...) | Give the agent the employee's `INSTALL.md`; it installs itself. |

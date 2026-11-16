@@ -6,6 +6,7 @@ Pick the AI you use. It takes about one minute and works on free plans.
 
 - [Claude: install it for good](#claude-install-it-for-good)
 - [ChatGPT: copy, paste, and save it in a Project](#chatgpt-copy-paste-and-save-it-in-a-project)
+- [Make it work like an employee](#make-it-work-like-an-employee-chatgpt-free)
 - [DeepSeek and any other chat](#deepseek-and-any-other-chat)
 - [Coding agents](#coding-agents)
 
@@ -93,6 +94,36 @@ So you never paste again:
 **8.** From now on, open the project and say: **make this week's posts**.
 
 ![Using it inside the project](../guide-images/chatgpt-7-use.jpg)
+
+---
+
+## Make it work like an employee (ChatGPT, free)
+
+Let it run on its own. Nothing is ever sent without your "yes".
+
+### Your files
+
+When it runs, attach your brand kit and content calendar in the chat (paperclip). On **ChatGPT Plus** you can instead connect **Google Drive** once (sidebar → **Plugins** → Google Drive) and keep the files there; the free plan does not include Google Drive.
+
+### Make it run on its own
+
+![Watch: scheduling it](../guide-images/gif-chatgpt-schedule.gif)
+
+1. In the sidebar, click **Scheduled**.
+
+![Scheduled](../guide-images/chatgpt-12-scheduled.jpg)
+
+2. Type this (change the time if you like) and press Enter:
+
+```
+Every Monday and Thursday at 9:00 AM (my time zone): act as my Content Producer (the instructions in my Content Producer project) and prepare the next posts from my content calendar for my review. Never send anything.
+```
+
+![Typing the task](../guide-images/chatgpt-13-task.jpg)
+
+3. ChatGPT confirms the schedule. Click **Run now** once to see the result right away.
+
+![Task scheduled](../guide-images/chatgpt-14-task-created.jpg)
 
 ---
 

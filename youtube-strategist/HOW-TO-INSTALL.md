@@ -6,6 +6,7 @@ Pick the AI you use. It takes about one minute and works on free plans.
 
 - [Claude: install it for good](#claude-install-it-for-good)
 - [ChatGPT: copy, paste, and save it in a Project](#chatgpt-copy-paste-and-save-it-in-a-project)
+- [Make it work like an employee](#make-it-work-like-an-employee-chatgpt-free)
 - [DeepSeek and any other chat](#deepseek-and-any-other-chat)
 - [Coding agents](#coding-agents)
 
@@ -93,6 +94,32 @@ So you never paste again:
 **8.** From now on, open the project and say: **weekly YouTube plan**.
 
 ![Using it inside the project](../guide-images/chatgpt-7-use.jpg)
+
+---
+
+## Make it work like an employee (ChatGPT, free)
+
+Let it run on its own. Nothing is ever sent without your "yes".
+
+### Make it run on its own
+
+![Watch: scheduling it](../guide-images/gif-chatgpt-schedule.gif)
+
+1. In the sidebar, click **Scheduled**.
+
+![Scheduled](../guide-images/chatgpt-12-scheduled.jpg)
+
+2. Type this (change the time if you like) and press Enter:
+
+```
+Every Monday at 8:00 AM (my time zone): act as my YouTube Strategist (the instructions in my YouTube Strategist project) and give me my weekly YouTube plan. Never send anything.
+```
+
+![Typing the task](../guide-images/chatgpt-13-task.jpg)
+
+3. ChatGPT confirms the schedule. Click **Run now** once to see the result right away.
+
+![Task scheduled](../guide-images/chatgpt-14-task-created.jpg)
 
 ---
 

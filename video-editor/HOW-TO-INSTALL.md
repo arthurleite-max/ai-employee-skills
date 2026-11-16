@@ -6,6 +6,7 @@ Pick the AI you use. It takes about one minute and works on free plans.
 
 - [Claude: install it for good](#claude-install-it-for-good)
 - [ChatGPT: copy, paste, and save it in a Project](#chatgpt-copy-paste-and-save-it-in-a-project)
+- [Make it work like an employee](#make-it-work-like-an-employee-chatgpt-free)
 - [DeepSeek and any other chat](#deepseek-and-any-other-chat)
 - [Coding agents](#coding-agents)
 

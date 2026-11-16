@@ -6,6 +6,7 @@ Pick the AI you use. It takes about one minute and works on free plans.
 
 - [Claude: install it for good](#claude-install-it-for-good)
 - [ChatGPT: copy, paste, and save it in a Project](#chatgpt-copy-paste-and-save-it-in-a-project)
+- [Make it work like an employee](#make-it-work-like-an-employee-chatgpt-free)
 - [DeepSeek and any other chat](#deepseek-and-any-other-chat)
 - [Coding agents](#coding-agents)
 
@@ -89,6 +90,54 @@ So you never paste again:
 **8.** From now on, open the project and say: **set up my front desk**.
 
 ![Using it inside the project](../guide-images/chatgpt-7-use.jpg)
+
+---
+
+## Make it work like an employee (ChatGPT, free)
+
+Connect your apps once and let it run on its own. Nothing is ever sent without your "yes".
+
+### Connect your apps: Google Calendar
+
+![Watch: connecting Gmail and Google Calendar](../guide-images/gif-chatgpt-connect.gif)
+
+1. In the ChatGPT sidebar, click **Plugins**.
+
+![Plugins](../guide-images/chatgpt-8-plugins.jpg)
+
+2. Find the app (search box at the top) and click **+**. Choose your Google account and click **Continue** to allow access. Google may ask you to confirm it is you.
+
+![Gmail plugin installed](../guide-images/chatgpt-9-gmail-installed.jpg)
+
+3. Repeat for the next app.
+
+![Google Calendar plugin installed](../guide-images/chatgpt-10-calendar.jpg)
+
+4. Open your **Front Desk** project and say **set up my front desk**. It reads your apps directly.
+
+![Reading Gmail and Calendar](../guide-images/chatgpt-11-reading.jpg)
+
+### Make it run on its own
+
+![Watch: scheduling it](../guide-images/gif-chatgpt-schedule.gif)
+
+1. In the sidebar, click **Scheduled**.
+
+![Scheduled](../guide-images/chatgpt-12-scheduled.jpg)
+
+2. Type this (change the time if you like) and press Enter:
+
+```
+Every weekday at 8:00 AM (my time zone): act as my Front Desk (the instructions in my Front Desk project) and tell me who I need to call back today. Never send anything.
+```
+
+![Typing the task](../guide-images/chatgpt-13-task.jpg)
+
+3. ChatGPT confirms the schedule. Click **Run now** once to see the result right away.
+
+![Task scheduled](../guide-images/chatgpt-14-task-created.jpg)
+
+> Answering real phone calls 24/7 needs a voice platform connected to your phone line. This employee gives you the call script and the agent to paste there; see SKILL.md.
 
 ---
 

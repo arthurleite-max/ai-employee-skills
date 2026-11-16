@@ -11,19 +11,18 @@ It never invents a policy, price or date, never promises refunds or exceptions y
 checks identity before sharing order details and never repeats card numbers or passwords. Nothing is sent
 without your permission unless you turn on autopilot for topics you choose.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can use |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Agents and AIs that run code (Claude, ChatGPT with code, Gemini, Kimi) | Runs `scripts/inbox.py` on your inbox export, then drafts in queue order |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | Triage table, clock table and a draft for every message you paste |
+| **Claude** (free plan works) | **[Download support-agent.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/support-agent.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-## Install
-
-- **Option 1 (recommended):** paste the text below the line in `INSTALL.md` into your AI.
-- **Option 2:** upload `downloads/support-agent.zip` (from this repository) as a skill, or copy the folder to `~/.claude/skills/` or
-  `~/.agents/skills/`. Maintainers build the zip with `sh build.sh`.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **set up my support** (on Claude, the first time: *"Use my Support Agent skill: set up my support"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

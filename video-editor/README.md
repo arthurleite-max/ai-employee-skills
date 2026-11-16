@@ -12,28 +12,19 @@ the raw recording (or its transcript) and your notes, and get:
 **It never publishes anything without your "yes".** It never puts words in your mouth, and it warns you
 about risky claims, people on camera without consent and music without rights.
 
-> step-by-step installation for your AI, with no technical jargon.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What you get |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| **Claude Code, Codex, Gemini CLI, Copilot, Cursor** and other agents with ffmpeg | The edited video file (`v1.mp4`), captions, an EDL for your editor |
-| **Claude, ChatGPT, Gemini, Kimi** (skill upload) | Cut plan, captions file and cue sheet; some can also cut short videos |
-| **DeepSeek, Qwen, free ChatGPT** and any chat (paste `PASTE-INTO-ANY-AI.md`) | Cut plan with exact times, SRT captions and cue sheet to apply in CapCut, DaVinci Resolve, Premiere or Final Cut |
+| **Claude** (free plan works) | **[Download video-editor.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/video-editor.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-It answers in your language; captions are in the language you speak in the video.
-
-## Install
-
-- **Option 1 (recommended):** open `INSTALL.md`, copy the text below the line, paste it into your AI
-  (attach `video-editor.zip` if you have it).
-- **Option 2:** upload `downloads/video-editor.zip` (from this repository) as a skill (Claude: Settings → Capabilities → Skills; ChatGPT:
-  Skills → Create → Upload; Gemini: Skills → upload `SKILL.md` plus `reference/` and `templates/`;
-  Kimi: Skills → `+`), or copy the `video-editor` folder to `~/.claude/skills/` or `~/.agents/skills/`.
-  Maintainers build the zip with `sh build.sh` at the repository root.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation (works on free
-  plans).
+Then say: **edit this video** (on Claude, the first time: *"Use my Video Editor skill: edit this video"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

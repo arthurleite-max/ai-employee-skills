@@ -11,21 +11,18 @@ An AI skill for business owners whose website quietly loses customers. On demand
 **It never changes your live site without your "yes"**, never invents prices, reviews or testimonials,
 and never adds fake urgency.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can check |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| **Claude Code, Codex, Gemini CLI, Copilot, Cursor** and other agents | Crawls the site with `scripts/sitecheck.py` (links really tested), renders pages if a browser is available |
-| **Claude, ChatGPT, Gemini, Kimi** (skill upload) | Pages you paste or screenshot; live pages too when browsing is on |
-| **DeepSeek, Qwen, free ChatGPT** and any chat (paste `PASTE-INTO-ANY-AI.md`) | Pages you paste (HTML or text) or screenshot; it says what it could not test |
+| **Claude** (free plan works) | **[Download website-designer.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/website-designer.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-## Install
-
-- **Option 1 (recommended):** open `INSTALL.md`, copy the text below the line, paste it into your AI.
-- **Option 2:** upload `downloads/website-designer.zip` (from this repository) as a skill (Claude, ChatGPT, Kimi; Gemini: `SKILL.md`
-  plus `reference/` and `templates/`), or copy the `website-designer` folder to `~/.claude/skills/` or
-  `~/.agents/skills/`. Maintainers build the zip with `sh build.sh` at the repository root.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **check my website** (on Claude, the first time: *"Use my Website Designer skill: check my website"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

@@ -11,45 +11,19 @@ tells you:
 **It is read-only.** It never pays, transfers, cancels or contacts anyone; it prepares the steps and the
 message, and you decide. It never asks for passwords and never invents a number.
 
-> step-by-step installation for your AI, with no technical jargon.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | How |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| **Claude** (web, desktop) | Upload the skill (zip) |
-| **ChatGPT** (Plus and above) | Upload the skill (zip) |
-| **Gemini** (web, Mac app) | Upload `SKILL.md` and the reference files |
-| **Kimi** | Upload the skill (zip) |
-| **Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor** and other Agent Skills tools | Your AI installs it (see below) |
-| **DeepSeek, Qwen, Mistral, Llama, Grok, free ChatGPT** and any other chat | Paste `PASTE-INTO-ANY-AI.md` |
+| **Claude** (free plan works) | **[Download finance-watchdog.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/finance-watchdog.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
+Then say: **audit my expenses** (on Claude, the first time: *"Use my Finance Watchdog skill: audit my expenses"*).
 It answers in your language, whatever language you write to it in.
-
-## Install
-
-### Option 1: let your AI install it (recommended)
-
-Open `INSTALL.md`, copy the text below the line, paste it into your AI (attach `finance-watchdog.zip` if
-you have it) and send.
-
-### Option 2: upload the skill
-
-1. Download `finance-watchdog.zip` from the page where you found this skill (for example the
-   repository's Releases page). Maintainers build it with `sh build.sh` at the repository root.
-2. Upload it:
-   - **Claude:** Settings → Capabilities → Skills → Upload skill ("Code execution and file creation" on).
-   - **ChatGPT:** Skills → Create → Upload from computer.
-   - **Gemini:** Skills (formerly Gems) → create/import → upload `SKILL.md` plus `reference/` and `templates/`.
-   - **Kimi:** Skills → `+` → upload the zip.
-   - **Coding agents:** copy the `finance-watchdog` folder to `~/.claude/skills/` (Claude Code) or
-     `~/.agents/skills/` (Codex, Gemini CLI, Copilot, Cursor…).
-3. Open a new conversation, attach your statements and say **audit my expenses**.
-
-### Option 3: paste it into any AI
-
-Open `PASTE-INTO-ANY-AI.md`, copy all of it and paste it as the first message of a new conversation, or
-into your AI's project / custom-instructions field. Works on free plans too.
 
 ## First use
 

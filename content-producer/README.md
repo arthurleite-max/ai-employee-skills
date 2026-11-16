@@ -13,20 +13,18 @@ approved ideas or the content calendar, it delivers:
 **It never publishes.** It never writes fake testimonials, never passes an AI image off as a real photo
 of your business, and flags health, money and "guaranteed" claims for you.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What you get |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Agents (Claude Code, Codex, Gemini CLI…) | Slides rendered as files by `scripts/cards.py`, image/video tools if you have them, drafts in your folders |
-| Claude, ChatGPT, Gemini, Kimi (skill upload) | Copy, layouts, and images when the AI can create them (with your yes) |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | Copy, slide-by-slide text, design briefs, video scripts |
+| **Claude** (free plan works) | **[Download content-producer.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/content-producer.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-## Install
-
-- **Option 1 (recommended):** paste the text below the line in `INSTALL.md` into your AI.
-- **Option 2:** upload `downloads/content-producer.zip` (from this repository) as a skill, or copy the folder to `~/.claude/skills/` or
-  `~/.agents/skills/`. Maintainers build the zip with `sh build.sh`.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **make this week's posts** (on Claude, the first time: *"Use my Content Producer skill: make this week's posts"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

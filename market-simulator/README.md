@@ -14,19 +14,18 @@ market research: results are always labelled simulated and never used as proof i
 > Ideas inspired by multi-agent "digital world" simulators. This skill runs in any AI, with no servers,
 > API keys or installation.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can use |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Agents and AIs that run code (Claude, ChatGPT with code, Gemini, Kimi) | `scripts/simpanel.py` balances the panel and computes the results |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | The whole simulation in text, with the maths shown |
+| **Claude** (free plan works) | **[Download market-simulator.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/market-simulator.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-## Install (about one minute)
-
-- **Easiest:** open `INSTALL.md`, copy everything below the line, paste it into a new conversation in the
-  AI you use. Your AI installs the skill itself or walks you through it, click by click.
-- **Claude or ChatGPT with Skills:** upload `downloads/market-simulator.zip` from this repository.
-- **Any chat:** paste `PASTE-INTO-ANY-AI.md` as the first message.
+Then say: **test my idea** (on Claude, the first time: *"Use my Market Simulator skill: test my idea"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

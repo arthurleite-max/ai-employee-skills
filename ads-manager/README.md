@@ -11,22 +11,18 @@ morning it:
 **It never changes your campaigns or budgets** and never asks for your passwords. It uses your real sales
 as the truth, raises budgets in small steps and writes ads that follow platform policies.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can use |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Agents with read-only ad connectors and schedules | Pulls the last 14 days every morning, runs `scripts/adscan.py`, sends the review only to you |
-| Claude, ChatGPT, Gemini, Kimi (skill upload, code execution) | Exports you attach; exact maths with the script |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | Numbers you paste; every division shown |
+| **Claude** (free plan works) | **[Download ads-manager.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/ads-manager.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-For exact numbers on long exports, prefer an AI that can run code (or the script).
-
-## Install
-
-- **Option 1 (recommended):** paste the text below the line in `INSTALL.md` into your AI.
-- **Option 2:** upload `downloads/ads-manager.zip` (from this repository) as a skill, or copy the folder to `~/.claude/skills/` or
-  `~/.agents/skills/`. Maintainers build the zip with `sh build.sh`.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **check my ads** (on Claude, the first time: *"Use my Ads Manager skill: check my ads"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

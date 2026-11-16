@@ -13,22 +13,18 @@ An AI skill for business owners who spend on marketing but are not sure what wor
 **It never changes your budgets or campaigns** and never sends anything without your yes. It uses your
 real sales as the truth (never the sum of what each ad platform claims) and never promises results.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can use |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Agents with read-only connectors (ads, analytics, CRM) | Pulls numbers every morning, runs `scripts/pulse.py`, delivers the pulse |
-| Claude, ChatGPT, Gemini, Kimi (skill upload) | Exports you attach; code execution for exact maths |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | Numbers you paste; maths shown step by step |
+| **Claude** (free plan works) | **[Download head-of-marketing.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/head-of-marketing.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-For exact numbers, prefer an AI that can run code (or the script): chat-only AIs sometimes miscalculate.
-
-## Install
-
-- **Option 1 (recommended):** paste the text below the line in `INSTALL.md` into your AI.
-- **Option 2:** upload `downloads/head-of-marketing.zip` (from this repository) as a skill, or copy the folder to `~/.claude/skills/` or
-  `~/.agents/skills/`. Maintainers build the zip with `sh build.sh`.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **weekly marketing report** (on Claude, the first time: *"Use my Head of Marketing skill: weekly marketing report"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

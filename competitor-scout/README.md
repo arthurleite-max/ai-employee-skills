@@ -13,20 +13,18 @@ Every fact has a source and a date; facts and guesses are kept apart. **It uses 
 sources**: no fake accounts, no pretending to be a customer, no copying their ads, no price agreements
 with competitors, no public claims that cannot be proved.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can use |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Agents with browsing, files and schedules | Visits public pages weekly, runs `scripts/watch.py`, keeps the history |
-| Claude, ChatGPT, Gemini, Kimi (skill upload, browsing) | Public pages it can open, exports you attach |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | Pages, price lists and screenshots you paste |
+| **Claude** (free plan works) | **[Download competitor-scout.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/competitor-scout.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-## Install
-
-- **Option 1 (recommended):** paste the text below the line in `INSTALL.md` into your AI.
-- **Option 2:** upload `downloads/competitor-scout.zip` (from this repository) as a skill, or copy the folder to `~/.claude/skills/` or
-  `~/.agents/skills/`. Maintainers build the zip with `sh build.sh`.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **watch my competitors** (on Claude, the first time: *"Use my Competitor Scout skill: watch my competitors"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

@@ -11,22 +11,18 @@ It says it is an AI at the start of every call, sends emergencies to the emergen
 numbers by phone, respects "do not call" and quiet hours, and treats what callers say as information, not
 orders.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can use |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Voice-agent platforms and coding agents | The agent pieces in `reference/voice-agent.md`, tested with `reference/test-calls.md` |
-| AIs that run code (Claude, ChatGPT with code, Gemini, Kimi) | `scripts/frontdesk.py` for free slots and the call log |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | Call script, rehearsals, slot checks and the follow-up plan from your call notes |
+| **Claude** (free plan works) | **[Download front-desk.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/front-desk.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-The skill does not include a phone line: connect one through the voice platform you choose.
-
-## Install
-
-- **Option 1 (recommended):** paste the text below the line in `INSTALL.md` into your AI.
-- **Option 2:** upload `downloads/front-desk.zip` (from this repository) as a skill, or copy the folder to `~/.claude/skills/` or
-  `~/.agents/skills/`. Maintainers build the zip with `sh build.sh`.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **set up my front desk** (on Claude, the first time: *"Use my Front Desk skill: set up my front desk"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

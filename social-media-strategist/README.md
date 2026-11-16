@@ -12,20 +12,18 @@ morning it brings:
 **It never posts for you**, never invents trends, testimonials or results, and adapts other accounts'
 ideas instead of copying them.
 
-## Works with any AI
+## Install (1 minute)
 
-| AI | What it can use |
+**[Step-by-step guide with screenshots → HOW-TO-INSTALL.md](HOW-TO-INSTALL.md)**
+
+| Your AI | What to do |
 |---|---|
-| Agents (Claude Code, Codex, Gemini CLI…) | Your metrics export + `scripts/insights.py`, research tools if you have them, a daily scheduled run |
-| Claude, ChatGPT, Gemini, Kimi (skill upload) | Your exports and screenshots; dated niche research when browsing is on |
-| DeepSeek, Qwen, free ChatGPT, any chat (paste `PASTE-INTO-ANY-AI.md`) | Your pasted metrics and notes; ideas labelled "your data" or "evergreen" |
+| **Claude** (free plan works) | **[Download social-media-strategist.zip](https://github.com/arthurleite-max/ai-employee-skills/releases/latest/download/social-media-strategist.zip)**. Do not unzip it. In Claude: Settings → Customize → Skills → **+ Add → Upload skill** → pick the zip. |
+| **ChatGPT, DeepSeek, Gemini** and any other chat | Open **[PASTE-INTO-ANY-AI.md](PASTE-INTO-ANY-AI.md)**, click the **Copy raw file** button (top right of the file), paste it into your AI and send. |
+| **Coding agents** (Claude Code, Codex, Cursor, Gemini CLI…) | Paste the text of [INSTALL.md](INSTALL.md) into the agent: it installs itself. |
 
-## Install
-
-- **Option 1 (recommended):** paste the text below the line in `INSTALL.md` into your AI.
-- **Option 2:** upload `downloads/social-media-strategist.zip` (from this repository) as a skill, or copy the folder to
-  `~/.claude/skills/` or `~/.agents/skills/`. Maintainers build the zip with `sh build.sh`.
-- **Option 3:** paste `PASTE-INTO-ANY-AI.md` as the first message of a new conversation.
+Then say: **good morning** (on Claude, the first time: *"Use my Social Media Strategist skill: good morning"*).
+It answers in your language, whatever language you write to it in.
 
 ## First use
 

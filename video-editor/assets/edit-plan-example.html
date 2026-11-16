@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Editor — Cut plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:oklch(0.975 0.008 85);--canvas-2:oklch(0.95 0.01 85);--card:oklch(0.99 0.005 85);--ink:oklch(0.2 0.02 200);--ink-2:oklch(0.32 0.02 200);--dim:oklch(0.52 0.012 85);--line:oklch(0.88 0.012 85);--teal:oklch(0.55 0.08 180);--teal-deep:oklch(0.38 0.07 195);--teal-soft:oklch(0.92 0.035 180);--crit:oklch(0.52 0.16 28);--crit-soft:oklch(0.95 0.035 28);--warn:oklch(0.55 0.13 60);--warn-soft:oklch(0.95 0.06 75);--ok:oklch(0.52 0.13 150);--ok-soft:oklch(0.94 0.05 150);--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}}
+:root[data-theme="dark"]{--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15.5px/1.6 var(--sans)}
+.wrap{max-width:860px;margin:0 auto;padding:44px 16px 80px}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{font:400 clamp(34px,6vw,50px)/1.05 var(--serif);margin:10px 0 8px}
+h2{font:400 28px/1.15 var(--serif);margin:40px 0 12px}
+.hl{font-size:17px;color:var(--ink-2);margin:0}
+.cov{font-size:13px;color:var(--dim);margin-top:8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+@media (max-width:620px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--card);border:.8px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile span{font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim)}
+.tile b{display:block;font:400 32px/1.1 var(--serif);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.tile small{color:var(--dim)}
+.alert{border-radius:14px;padding:14px 16px;border:.8px solid var(--line);background:var(--card);margin-bottom:10px}
+.alert.crit{border-color:var(--crit)}.alert.warn{border-color:var(--warn)}
+.alert h3{margin:0 0 6px;font-size:16px}
+.pill{font:600 10.5px/1 var(--sans);padding:4px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;margin-right:6px}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}.pill.warn{background:var(--warn-soft);color:var(--warn)}.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.ev{font:12.5px/1.6 var(--mono);color:var(--ink-2);background:var(--canvas-2);border-radius:8px;padding:8px 10px;margin:8px 0}
+.next{font-size:14.5px;color:var(--ink-2);margin:0}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim);padding:9px 10px;border-bottom:.8px solid var(--line)}
+td{padding:9px 10px;border-top:.8px solid var(--line)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.one{background:var(--teal-soft);color:var(--teal-deep);border-radius:14px;padding:16px 18px;margin-top:28px;font-size:16px}
+.ask{border:1.5px solid var(--teal);border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:600}
+.msg{margin-top:10px}.msgh{display:flex;justify-content:space-between;align-items:center}
+pre{white-space:pre-wrap;background:var(--canvas-2);border-radius:10px;padding:12px 14px;font:13px/1.55 var(--mono);margin:6px 0 0}
+button{font:500 13px/1 var(--sans);padding:7px 11px;border-radius:8px;border:.8px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+footer{margin-top:48px;font-size:12.5px;color:var(--dim)}
+td.t{color:var(--ink-2)}.mv{font:600 10.5px/1 var(--sans);color:var(--teal-deep);background:var(--teal-soft);padding:3px 7px;border-radius:99px;margin-left:6px}
+</style>
+</head>
+<body><div class="wrap">
+<span class="kicker">Video Editor · cut plan v1 · fictional data</span>
+<h1>Brushing mistakes reel: 2:31 of raw footage, 52.6 seconds to approve.</h1>
+<p class="hl">Bright Smile Dental · Dr. Ana Silva · vertical 9:16 · target ≤ 60 s · natural pacing.</p>
+<p class="cov">Source: raw_0412.mp4 (2:31.4, 1920×1080, 30 fps). Transcript: raw_0412.srt. Nothing has been rendered or published.</p>
+<div class="tiles">
+  <div class="tile"><span>New length</span><b>52.6 s</b><small>sum of 9 kept segments</small></div>
+  <div class="tile"><span>Removed</span><b>98.8 s</b><small>retake, false start, aside, 14 pauses</small></div>
+  <div class="tile"><span>Check before posting</span><b>2</b><small>health claim · patient in B-roll</small></div>
+</div>
+<h2>Kept segments</h2>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Source in → out</th><th class="n">Dur.</th><th class="n">New start</th><th>Text</th></tr></thead><tbody>
+<tr><td>1</td><td>01:42.30 → 01:45.10</td><td class="n">2.80</td><td class="n">0.00</td><td class="t">“Most people brush for 40 seconds.” <span class="mv">hook · moved</span></td></tr>
+<tr><td>2</td><td>00:08.20 → 00:12.90</td><td class="n">4.70</td><td class="n">2.80</td><td class="t">“I'm Dr. Ana, and these are the 3 mistakes I see every day.”</td></tr>
+<tr><td>3</td><td>00:13.40 → 00:21.10</td><td class="n">7.70</td><td class="n">7.50</td><td class="t">“Mistake one: brushing too hard…”</td></tr>
+<tr><td>4</td><td>00:21.60 → 00:28.90</td><td class="n">7.30</td><td class="n">15.20</td><td class="t">“…you wear down the enamel, and it doesn't grow back.”</td></tr>
+<tr><td>5</td><td>00:39.00 → 00:46.20</td><td class="n">7.20</td><td class="n">22.50</td><td class="t">“Mistake two: rinsing right after brushing.” <span class="mv">2nd take</span></td></tr>
+<tr><td>6</td><td>00:46.70 → 00:52.40</td><td class="n">5.70</td><td class="n">29.70</td><td class="t">“Spit, don't rinse. Let the fluoride work.”</td></tr>
+<tr><td>7</td><td>01:05.10 → 01:13.60</td><td class="n">8.50</td><td class="n">35.40</td><td class="t">“Mistake three: two minutes feels long, and that's the point…”</td></tr>
+<tr><td>8</td><td>01:55.20 → 02:00.10</td><td class="n">4.90</td><td class="n">43.90</td><td class="t">“Do this and it heals gum disease in a week.” <span class="pill crit">check</span></td></tr>
+<tr><td>9</td><td>02:20.60 → 02:24.40</td><td class="n">3.80</td><td class="n">48.80</td><td class="t">“Book your check-up at the link in bio.”</td></tr>
+</tbody></table></div>
+<p class="cov">Sum: 2.80 + 4.70 + 7.70 + 7.30 + 7.20 + 5.70 + 8.50 + 4.90 + 3.80 = 52.60 s.</p>
+<h2>Removed</h2>
+<div class="tw"><table><tbody>
+<tr><td>00:00.00–00:08.20</td><td>“Is it recording? OK. Hi everyone, today I—” false start and aside</td></tr>
+<tr><td>00:31.40–00:39.00</td><td>First take of mistake 2 (stutter) and “let me say that again”</td></tr>
+<tr><td>01:13.60–01:42.30</td><td>Long tangent about toothbrush brands (contains a competitor name)</td></tr>
+<tr><td>14 pauses</td><td>Over 0.4 s each, 11.3 s in total; 0.15 s of air kept at every join</td></tr>
+</tbody></table></div>
+<h2>Check before posting</h2>
+<div class="alert crit"><span class="pill crit">Decide</span><h3>43.9 s · “it heals gum disease in a week”</h3><p class="next">Health claim. Kept as said; many platforms and professional councils restrict this. Options: cut segment 8 (new length 47.7 s) or re-record a softer line.</p></div>
+<div class="alert warn"><span class="pill warn">Consent</span><h3>B-roll clinic_lobby.mp4 · a patient is visible</h3><p class="next">Not used until you confirm consent. Alternative: brushing.mp4 over segment 3.</p></div>
+<h2>Notes not followed</h2>
+<div class="alert"><h3>“Add the trending song”</h3><p class="next">Commercial songs cannot go in the file. Room is left for music; add the song inside the app when you post, where it is licensed.</p></div>
+<div class="ask">Approve this cut? Then captions (bold, 1–4 words, brand teal) and the B-roll cue sheet come next.</div>
+<h2>Project memory</h2>
+<div class="msg"><div class="msgh"><b>Keep this and paste it with your next request</b><button data-t="m1">Copy</button></div>
+<pre id="m1">PROJECT: brushing-mistakes-reel · v1 cut plan · 52.6 s · waiting for approval
+Kept: 9 segments (hook moved from 01:42.30) · Removed: false start, retake of mistake 2, brands tangent, 14 pauses
+Check before posting: health claim at 43.9 s; patient in clinic_lobby.mp4
+Rules learned: none yet</pre></div>
+<footer>Video Editor · nothing is published without your approval · all names and figures are fictional.</footer>
+</div>
+<script>
+document.querySelectorAll('button[data-t]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.t).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)})}})});
+</script>
+</body></html>

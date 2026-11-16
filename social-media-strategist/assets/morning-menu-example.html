@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning content menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:oklch(0.975 0.008 85);--canvas-2:oklch(0.95 0.01 85);--card:oklch(0.99 0.005 85);--ink:oklch(0.2 0.02 200);--ink-2:oklch(0.32 0.02 200);--dim:oklch(0.52 0.012 85);--line:oklch(0.88 0.012 85);--teal:oklch(0.55 0.08 180);--teal-deep:oklch(0.38 0.07 195);--teal-soft:oklch(0.92 0.035 180);--crit:oklch(0.52 0.16 28);--crit-soft:oklch(0.95 0.035 28);--warn:oklch(0.55 0.13 60);--warn-soft:oklch(0.95 0.06 75);--ok:oklch(0.52 0.13 150);--ok-soft:oklch(0.94 0.05 150);--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}}
+:root[data-theme="dark"]{--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15.5px/1.6 var(--sans)}
+.wrap{max-width:860px;margin:0 auto;padding:44px 16px 80px}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{font:400 clamp(34px,6vw,50px)/1.05 var(--serif);margin:10px 0 8px}
+h2{font:400 28px/1.15 var(--serif);margin:40px 0 12px}
+.hl{font-size:17px;color:var(--ink-2);margin:0}
+.cov{font-size:13px;color:var(--dim);margin-top:8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+@media (max-width:620px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--card);border:.8px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile span{font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim)}
+.tile b{display:block;font:400 32px/1.1 var(--serif);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.tile small{color:var(--dim)}
+.alert{border-radius:14px;padding:14px 16px;border:.8px solid var(--line);background:var(--card);margin-bottom:10px}
+.alert.crit{border-color:var(--crit)}.alert.warn{border-color:var(--warn)}
+.alert h3{margin:0 0 6px;font-size:16px}
+.pill{font:600 10.5px/1 var(--sans);padding:4px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;margin-right:6px}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}.pill.warn{background:var(--warn-soft);color:var(--warn)}.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.ev{font:12.5px/1.6 var(--mono);color:var(--ink-2);background:var(--canvas-2);border-radius:8px;padding:8px 10px;margin:8px 0}
+.next{font-size:14.5px;color:var(--ink-2);margin:0}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim);padding:9px 10px;border-bottom:.8px solid var(--line)}
+td{padding:9px 10px;border-top:.8px solid var(--line)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.one{background:var(--teal-soft);color:var(--teal-deep);border-radius:14px;padding:16px 18px;margin-top:28px;font-size:16px}
+.ask{border:1.5px solid var(--teal);border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:600}
+.msg{margin-top:10px}.msgh{display:flex;justify-content:space-between;align-items:center}
+pre{white-space:pre-wrap;background:var(--canvas-2);border-radius:10px;padding:12px 14px;font:13px/1.55 var(--mono);margin:6px 0 0}
+button{font:500 13px/1 var(--sans);padding:7px 11px;border-radius:8px;border:.8px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+footer{margin-top:48px;font-size:12.5px;color:var(--dim)}
+</style>
+</head>
+<body><div class="wrap">
+<span class="kicker">Social Media Strategist · morning menu · fictional data</span>
+<h1>Wednesday: carousel at 12:00. Pick one.</h1>
+<p class="hl">Crumb &amp; Co. · today's slot from your calendar · nothing will be posted without your yes.</p>
+<p class="cov">Based on your metrics 01/10–31/10 (22 posts) and evergreen needs. No browsing today, so no trend claims.</p>
+<h2>Three ideas</h2>
+<div class="alert"><span class="pill ok">1</span><h3>Bread storage: 3 rules · educate · 6 slides</h3>
+<p class="next"><b>Hooks:</b> “You're storing your bread wrong.” / “3 rules for bread that lasts.” / “Plastic bag or cloth?”</p>
+<p class="next"><b>Why:</b> your data — list carousels: median 38.2 saves per 1,000 reach vs 12.0 for photos. <b>Effort:</b> 4 photos + text.</p></div>
+<div class="alert"><span class="pill ok">2</span><h3>From flour to loaf in 8 photos · behind the scenes · 8 slides</h3>
+<p class="next"><b>Hooks:</b> “18 hours, 8 photos.” / “What happens before 6am here.”</p>
+<p class="next"><b>Why:</b> evergreen; process content is what people share with friends. <b>Effort:</b> photos tomorrow at 4am.</p></div>
+<div class="alert"><span class="pill ok">3</span><h3>Sourdough myths · educate · 5 slides</h3>
+<p class="next"><b>Hooks:</b> “Sourdough is not ‘healthier’ by magic.” / “3 sourdough myths we hear every week.”</p>
+<p class="next"><b>Why:</b> evergreen; the question you get most in DMs. <b>Check before posting:</b> keep health statements factual.</p></div>
+<h2>Not followed</h2>
+<div class="alert warn"><h3>“Say our bread helps you lose weight”</h3><p class="next">Health claim: not written as a fact. Alternative: describe how it is made (long fermentation, three ingredients).</p></div>
+<div class="ask">Which one: 1, 2 or 3?</div>
+<h2>This week</h2>
+<div class="tw"><table><thead><tr><th>Date</th><th>Time</th><th>Format</th><th>Pillar</th><th>Idea</th><th>Status</th></tr></thead><tbody>
+<tr><td>Tue 10/11</td><td>18:00</td><td>Reel 25 s</td><td>behind the scenes</td><td>4am shaping</td><td>posted</td></tr>
+<tr><td>Wed 11/11</td><td>12:00</td><td>Carousel</td><td>educate</td><td>(today — your pick)</td><td>idea</td></tr>
+<tr><td>Thu 12/11</td><td>18:00</td><td>Reel 30 s</td><td>offer</td><td>Christmas panettone pre-orders</td><td>idea</td></tr>
+<tr><td>Sat 14/11</td><td>18:00</td><td>Reel, you on camera</td><td>proof</td><td>A regular customer's order (with consent)</td><td>idea</td></tr>
+</tbody></table></div>
+<footer>Social Media Strategist · nothing is published without your approval · all names and figures are fictional.</footer>
+</div>
+<script>
+document.querySelectorAll('button[data-t]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.t).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)})}})});
+</script>
+</body></html>

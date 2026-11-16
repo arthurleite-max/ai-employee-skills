@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finance Watchdog — Weekly report</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:oklch(0.975 0.008 85);--canvas-2:oklch(0.95 0.01 85);--card:oklch(0.99 0.005 85);--ink:oklch(0.2 0.02 200);--ink-2:oklch(0.32 0.02 200);--dim:oklch(0.52 0.012 85);--line:oklch(0.88 0.012 85);--teal:oklch(0.55 0.08 180);--teal-deep:oklch(0.38 0.07 195);--teal-soft:oklch(0.92 0.035 180);--crit:oklch(0.52 0.16 28);--crit-soft:oklch(0.95 0.035 28);--warn:oklch(0.55 0.13 60);--warn-soft:oklch(0.95 0.06 75);--ok:oklch(0.52 0.13 150);--ok-soft:oklch(0.94 0.05 150);--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}}
+:root[data-theme="dark"]{--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15.5px/1.6 var(--sans)}
+.wrap{max-width:860px;margin:0 auto;padding:44px 16px 80px}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{font:400 clamp(34px,6vw,50px)/1.05 var(--serif);margin:10px 0 8px}
+h2{font:400 28px/1.15 var(--serif);margin:40px 0 12px}
+.hl{font-size:17px;color:var(--ink-2);margin:0}
+.cov{font-size:13px;color:var(--dim);margin-top:8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+@media (max-width:620px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--card);border:.8px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile span{font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim)}
+.tile b{display:block;font:400 32px/1.1 var(--serif);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.tile small{color:var(--dim)}
+.alert{border-radius:14px;padding:14px 16px;border:.8px solid var(--line);background:var(--card);margin-bottom:10px}
+.alert.crit{border-color:var(--crit)}.alert.warn{border-color:var(--warn)}
+.alert h3{margin:0 0 6px;font-size:16px}
+.pill{font:600 10.5px/1 var(--sans);padding:4px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;margin-right:6px}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}.pill.warn{background:var(--warn-soft);color:var(--warn)}.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.ev{font:12.5px/1.6 var(--mono);color:var(--ink-2);background:var(--canvas-2);border-radius:8px;padding:8px 10px;margin:8px 0}
+.next{font-size:14.5px;color:var(--ink-2);margin:0}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim);padding:9px 10px;border-bottom:.8px solid var(--line)}
+td{padding:9px 10px;border-top:.8px solid var(--line)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.one{background:var(--teal-soft);color:var(--teal-deep);border-radius:14px;padding:16px 18px;margin-top:28px;font-size:16px}
+.ask{border:1.5px solid var(--teal);border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:600}
+.msg{margin-top:10px}.msgh{display:flex;justify-content:space-between;align-items:center}
+pre{white-space:pre-wrap;background:var(--canvas-2);border-radius:10px;padding:12px 14px;font:13px/1.55 var(--mono);margin:6px 0 0}
+button{font:500 13px/1 var(--sans);padding:7px 11px;border-radius:8px;border:.8px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+footer{margin-top:48px;font-size:12.5px;color:var(--dim)}
+</style>
+</head>
+<body><div class="wrap">
+<span class="kicker">Finance Watchdog · weekly report · fictional data</span>
+<h1>Nov 2–8: one card to block, BRL 3,912/year to stop paying.</h1>
+<p class="hl">Harbour Bakery · money out BRL 18,410 · 2 act-now · 3 to decide this week.</p>
+<p class="cov">Coverage: Business account and Card •••• 9021, 02/11–08/11. Not read: debit card •••• 3307 (no file this week).</p>
+
+<div class="tiles">
+  <div class="tile"><span>Money out</span><b>18,410</b><small>BRL · usual week 17,900</small></div>
+  <div class="tile"><span>Act now</span><b>2</b><small>possible fraud · charge after cancelling</small></div>
+  <div class="tile"><span>At stake per year</span><b>3,912</b><small>BRL · estimated, not yet verified</small></div>
+</div>
+
+<h2>Act now</h2>
+<div class="alert crit"><span class="pill crit">Act now</span><h3>1. Card •••• 9021 looks like it is being tested by fraudsters</h3>
+  <div class="ev">05/11 · PAYSRV*5521 · −1.00<br>05/11 · PAYSRV*5521 · −1.00<br>05/11 · PAYSRV*5521 · −2.50<br>06/11 · GADGET STORE ONLINE · −612.40</div>
+  <p class="next"><b>Next step (you):</b> open the bank's official app or call the number on the back of the card, block or replace it and dispute the four charges. Ignore any message with a link asking you to "unblock" the card. Amount at stake: BRL 616.90.</p></div>
+<div class="alert crit"><span class="pill crit">Act now</span><h3>2. VidCall still charging after you cancelled on 02/10</h3>
+  <div class="ev">03/11 · VIDCALL PRO · −49.00</div>
+  <p class="next"><b>Next step (you):</b> ask for the refund with the cancellation date (message below). BRL 49.00 now, BRL 588/year if it continues.</p></div>
+
+<h2>Decide this week</h2>
+<div class="alert warn"><span class="pill warn">Decide</span><h3>3. Internet went up: 159.90 → 199.90 (+25.0%)</h3><p class="next">BRL 480/year. Looks like the end of a promotion. Call and negotiate, or compare plans.</p></div>
+<div class="alert warn"><span class="pill warn">Decide</span><h3>4. Two cloud-storage plans</h3><p class="next">CloudBox 59.90 + DriveSafe 39.90 a month. Keeping one saves up to BRL 718.80/year. Which one holds the files you use?</p></div>
+<div class="alert warn"><span class="pill warn">Decide</span><h3>5. Annual renewal on Fri 20/11: MenuMaker, BRL 1,188.00</h3><p class="next">Cancel by Wed 18/11 (in 9 days) if you no longer need it.</p></div>
+
+<h2>Where the money went</h2>
+<div class="tw"><table>
+<thead><tr><th>Category</th><th class="n">This week</th><th class="n">Usual</th><th class="n">Change</th></tr></thead>
+<tbody>
+<tr><td>Payroll and contractors</td><td class="n">9,800.00</td><td class="n">9,800.00</td><td class="n">—</td></tr>
+<tr><td>Suppliers and inventory</td><td class="n">5,240.30</td><td class="n">5,410.00</td><td class="n">−3.1%</td></tr>
+<tr><td>Software and subscriptions</td><td class="n">612.70</td><td class="n">563.70</td><td class="n">+8.7%</td></tr>
+<tr><td>Bank fees and interest</td><td class="n">41.50</td><td class="n">28.50</td><td class="n">+45.6%</td></tr>
+<tr><td>Uncategorised (incl. suspected fraud)</td><td class="n">616.90</td><td class="n">0.00</td><td class="n">new</td></tr>
+<tr><td>Other categories</td><td class="n">2,098.60</td><td class="n">2,097.80</td><td class="n">—</td></tr>
+<tr><td><b>Money out</b></td><td class="n"><b>18,410.00</b></td><td class="n">17,900.00</td><td class="n">+2.8%</td></tr>
+</tbody></table></div>
+<p class="cov">Sum shown: bank outflows 21,610.00 − moved 5,310.00 + card purchases 2,110.00 − card refunds 0.00 = 18,410.00. Moved, not spent: card bill 4,310.00 · savings transfer 1,000.00.</p>
+
+<h2>Coming up (next 30 days)</h2>
+<div class="tw"><table><tbody>
+<tr><td>Fri 20/11</td><td>MenuMaker annual renewal (cancel by 18/11)</td><td class="n">1,188.00</td></tr>
+<tr><td>Fri 20/11</td><td>Card •••• 9021 bill (October purchases)</td><td class="n">2,110.00</td></tr>
+<tr><td>Tue 01/12</td><td>Rent</td><td class="n">6,500.00</td></tr>
+</tbody></table></div>
+
+<h2>Savings</h2>
+<div class="tw"><table>
+<thead><tr><th>Item</th><th>Status</th><th class="n">Per year</th></tr></thead>
+<tbody>
+<tr><td>Cancel GymOne (personal, on business card)</td><td><span class="pill ok">verified</span> no charge on 02/11</td><td class="n">1,428.00</td></tr>
+<tr><td>Refund duplicate BULK MART 06/03</td><td><span class="pill warn">waiting</span> asked on 09/11</td><td class="n">1,148.20 once</td></tr>
+<tr><td>Internet, cloud overlap, MenuMaker</td><td>new suggestions (estimated)</td><td class="n">up to 2,386.80</td></tr>
+</tbody></table></div>
+
+<div class="one"><b>The one thing:</b> block card •••• 9021 today, before anything else. Fraud tests are usually followed by bigger purchases.</div>
+<div class="ask">Shall I prepare the dispute steps and the VidCall refund message for you to send?</div>
+
+<h2>Ready to send</h2>
+<div class="msg"><div class="msgh"><b>Refund request — VidCall</b><button data-t="m1">Copy</button></div>
+<pre id="m1">Hello, I cancelled my VidCall Pro subscription on 02/10/2026 (confirmation attached) but was charged BRL 49.00 on 03/11/2026. Please refund this charge and confirm in writing that the subscription is closed. Thank you, Sam Rivera</pre></div>
+
+<footer>Finance Watchdog · read-only: nothing was paid, moved, cancelled or disputed. Not financial, tax or legal advice. All names and figures are fictional.</footer>
+</div>
+<script>
+document.querySelectorAll('button[data-t]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.t).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)})}})});
+</script>
+</body></html>

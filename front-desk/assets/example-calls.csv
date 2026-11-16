@@ -1,0 +1,7 @@
+id;time;caller;phone;outcome;text;called_back;attempts
+C1;2026-06-04T08:12;Nora P.;+1 555 0101;booked;New client, booked Friday 10:00 for a first session.;;
+C2;2026-06-04T09:40;Omar T.;+1 555 0102;missed;Missed call, no voicemail.;2026-06-04T09:52;1
+C3;2026-06-04T13:05;Lily W.;+1 555 0103;question;Asked about prices for a package, wants a call back.;;
+C4;2026-06-04T15:30;Unknown;+1 555 0104;spam;Recorded sales pitch.;;
+C5;2026-06-04T16:10;Ben K.;+1 555 0105;message;Please stop calling me, remove my number.;;
+C6;2026-06-04T17:20;Lily W.;+1 555 0103;missed;Missed call.;;

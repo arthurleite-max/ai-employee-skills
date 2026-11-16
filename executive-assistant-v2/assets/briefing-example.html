@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Briefing — Tuesday, Nov 11</title>
+<!-- EXECUTIVE ASSISTANT SAMPLE: keep the head, CSS and structure; change only the content. All data is fictional. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:oklch(0.975 0.008 85);--canvas-2:oklch(0.95 0.01 85);--card:oklch(0.99 0.005 85);
+  --ink:oklch(0.2 0.02 200);--ink-2:oklch(0.32 0.02 200);--dim:oklch(0.52 0.012 85);
+  --line:oklch(0.88 0.012 85);--teal:oklch(0.55 0.08 180);--teal-deep:oklch(0.38 0.07 195);--teal-soft:oklch(0.92 0.035 180);
+  --crit:oklch(0.52 0.16 28);--crit-soft:oklch(0.95 0.035 28);--warn:oklch(0.55 0.13 60);--warn-soft:oklch(0.95 0.06 75);
+  --ok:oklch(0.52 0.13 150);--ok-soft:oklch(0.94 0.05 150);
+  --serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight","Inter",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);
+  --ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);
+  --line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);
+  --crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);
+  --ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150);
+}}
+:root[data-theme="dark"]{
+  --canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);
+  --ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);
+  --line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);
+  --crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);
+  --ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--teal-deep)}
+.wrap{max-width:860px;margin:0 auto;padding:40px 16px 80px}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{font:400 clamp(34px,6vw,48px)/1.05 var(--serif);margin:10px 0 8px;letter-spacing:-.01em}
+.head p{color:var(--ink-2);margin:0;font-size:16px}
+.alert{margin:22px 0 0;padding:12px 14px;border-radius:10px;background:var(--crit-soft);color:var(--crit);font-weight:500}
+section{margin-top:34px}
+h2{font:600 13px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin:0 0 12px;display:flex;gap:8px;align-items:center}
+h2 .n{font:500 11px/1 var(--mono);background:var(--canvas-2);border:.8px solid var(--line);border-radius:99px;padding:4px 8px;color:var(--ink-2)}
+.card{background:var(--card);border:.8px solid var(--line);border-radius:14px}
+ol.needs{list-style:none;margin:0;padding:0;counter-reset:n}
+ol.needs li{counter-increment:n;display:grid;grid-template-columns:34px 1fr;gap:4px 12px;padding:16px 18px;border-top:.8px solid var(--line)}
+ol.needs li:first-child{border-top:0}
+ol.needs li::before{content:counter(n);font:400 26px/1 var(--serif);color:var(--teal)}
+.t{font-weight:600}.t small{font-weight:400;color:var(--dim)}
+.why{grid-column:2;color:var(--ink-2)}
+.meta{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;font-size:12.5px;color:var(--dim)}
+.pill{font:500 11px/1 var(--sans);padding:4px 8px;border-radius:99px;background:var(--canvas-2);color:var(--ink-2);border:.8px solid var(--line)}
+.pill.crit{background:var(--crit-soft);color:var(--crit);border-color:transparent}
+.pill.warn{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.agenda{display:grid;gap:0}
+.ev{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:14px 18px;border-top:.8px solid var(--line)}
+.ev:first-child{border-top:0}
+.ev time{font:500 14px/1.4 var(--mono);color:var(--ink-2)}
+.ev .foco{color:var(--teal-deep);font-size:13.5px;margin-top:2px}
+.ev.free time,.ev.free div{color:var(--dim)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}.ev{grid-template-columns:56px 1fr}}
+.list{margin:0;padding:6px 18px;list-style:none}
+.list li{padding:9px 0;border-top:.8px solid var(--line);font-size:14px}
+.list li:first-child{border-top:0}
+.list b{font-weight:600}
+.list .d{color:var(--dim)}
+.box-h{padding:14px 18px 0;font:600 12px/1 var(--sans);color:var(--ink-2)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--dim);padding:12px 18px;border-bottom:.8px solid var(--line)}
+td{padding:11px 18px;border-top:.8px solid var(--line);vertical-align:top}
+tr:first-child td{border-top:0}
+.small{font-size:13.5px;color:var(--ink-2)}
+.one{background:var(--teal-soft);border-radius:14px;padding:22px 24px}
+.one .kicker{color:var(--teal-deep)}
+.one p{font:400 22px/1.35 var(--serif);margin:8px 0 0}
+.ask{margin-top:22px;padding:16px 18px;border:1.5px solid var(--teal);border-radius:14px;font-weight:600}
+.src{margin-top:22px;font-size:12.5px;color:var(--dim)}
+.draft{padding:16px 18px;border-top:.8px solid var(--line)}
+.draft:first-child{border-top:0}
+.draft .to{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:13.5px}
+.draft .orig{font-size:13px;color:var(--dim);margin:6px 0 8px}
+.draft pre{margin:0;white-space:pre-wrap;font:14px/1.5 var(--sans);background:var(--canvas-2);border-radius:10px;padding:12px 14px}
+button.copy{font:500 12px/1 var(--sans);padding:7px 11px;border-radius:8px;border:.8px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;white-space:nowrap}
+button.copy:hover{border-color:var(--teal)}
+.mark{background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:0 4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <span class="kicker">Executive Assistant · Oakline Interiors</span>
+  <h1>Good morning, Sam.</h1>
+  <p>71 messages since yesterday · <b>4 need you</b> · 3 meetings; the 2pm is the one that matters.</p>
+</header>
+
+<!-- Critical source warning: only when the calendar or main inbox could not be read. Example:
+<div class="alert">I could not read your calendar (permission denied). Ask your Google Workspace administrator to allow access. Do not treat the day as free.</div> -->
+
+<section>
+  <h2>Needs you <span class="n">4</span></h2>
+  <ol class="needs card">
+    <li>
+      <div class="t">City Hall: business license expires Friday</div>
+      <div class="why">USD 412 renewal; you must sign on the city portal. Without it, inspectors can close the showroom.</div>
+      <div class="meta"><span class="pill crit">due Fri Nov 14</span><span>Email of Nov 5 · <a href="#">open in Gmail</a></span></div>
+    </li>
+    <li>
+      <div class="t">Northwind Construction: USD 18,600 change order <small>· VIP</small></div>
+      <div class="why">Julia wants the common-area cabinets added to the Tower B contract. She needs a yes or no before her board meets Thursday. You see her today at 2pm.</div>
+      <div class="meta"><span class="pill warn">decide by Thu Nov 13</span><span>Email yesterday, 17:42 · <a href="#">open in Gmail</a></span></div>
+    </li>
+    <li>
+      <div class="t">Mrs. Hale: second message, upset</div>
+      <div class="why">Wardrobe door misaligned after last week's install. The first message was Thursday and went unanswered. I drafted only an acknowledgement; this needs a call from you.</div>
+      <div class="meta"><span class="pill warn">waiting 5 days</span><span>WhatsApp · <a href="#">open in WhatsApp</a></span></div>
+    </li>
+    <li>
+      <div class="t">Hartley Design Studio: you promised the quote today</div>
+      <div class="why">You told Ben "I'll send the numbers on Tuesday" on Nov 3. Today is Tuesday. I could not find the finished quote in your files.</div>
+      <div class="meta"><span class="pill crit">due today</span><span>WhatsApp of Nov 3 · <a href="#">open in WhatsApp</a></span></div>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Today's calendar <span class="n">3 meetings</span></h2>
+  <div class="card agenda">
+    <div class="ev"><time>09:30</time><div><b>Site visit: Anna Price</b> <span class="small">(referred by Mark) · 210 Fig Street</span><div class="foco">Focus: confirm the target budget before measuring. Leave at 9:00; 25 minutes of traffic.</div></div></div>
+    <div class="ev free"><time>11:00</time><div>Largest free block of the day: 11:00–14:00. A good time to finish the Hartley quote.</div></div>
+    <div class="ev"><time>14:00</time><div><b>Northwind Construction: Julia Brooks</b> <span class="small">· showroom · no agenda</span><div class="foco">Focus: bring the change-order decision. I drafted an agenda (below).</div></div></div>
+    <div class="ev"><time>17:30</time><div><b>Catch-up with Luke (design)</b> <span class="pill warn">conflict</span><div class="foco">It collides with the call you need to make to Mrs. Hale if the 2pm runs late. Suggest moving it to 17:45.</div></div></div>
+  </div>
+  <p class="small" style="margin:10px 2px 0">Early tomorrow: 8:00 meeting with your accountant; he is still waiting for the October bank statement.</p>
+</section>
+
+<section class="grid2">
+  <div class="card">
+    <div class="box-h">PROMISES AND WHO IS WAITING</div>
+    <ul class="list">
+      <li><b>Hartley Studio</b>: living-room panels quote <span class="pill crit">today</span></li>
+      <li><b>Fernando (accountant)</b>: October statement <span class="d">· asked 4 days ago</span></li>
+      <li><b>Julia (Northwind)</b>: answer on the change order <span class="d">· by Thu Nov 13</span></li>
+      <li><b>Carla Mendes</b> owes you the revised floor plan <span class="d">· 5 business days · 2nd follow-up drafted</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="box-h">DEADLINES: NEXT 7 DAYS</div>
+    <ul class="list">
+      <li><b>Fri Nov 14</b>: business license <span class="d">· USD 412</span></li>
+      <li><b>Mon Nov 17</b>: Hartwell Hardware invoice <span class="d">· USD 3,280 · sender verified</span></li>
+      <li><b>Tue Nov 18</b>: Pinewood Timber invoice <span class="d">· USD 9,140</span> <span class="pill crit">beneficiary changed: call before paying</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Drafts ready <span class="n">11</span></h2>
+  <div class="card tw">
+    <table>
+      <thead><tr><th>To</th><th>Channel</th><th>Reply</th></tr></thead>
+      <tbody>
+        <tr><td>Dana, Sergio, Paula</td><td>WhatsApp</td><td>3 site-visit reschedules, with free times from the calendar</td></tr>
+        <tr><td>Pinewood Timber, Hartwell Hardware</td><td>Email</td><td>2 order confirmations</td></tr>
+        <tr><td>4 customers</td><td>Email / WhatsApp</td><td>Routine questions: warranty, install lead time, finish colour, invoice copy</td></tr>
+        <tr><td>Mark, Lucy</td><td>WhatsApp</td><td>2 thank-yous for referrals</td></tr>
+        <tr><td colspan="3" class="small">Outside the batch (you review one by one): acknowledgement to Mrs. Hale · 2nd follow-up to Carla · agenda for the Northwind meeting.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="grid2">
+  <div class="card">
+    <div class="box-h">HANDED OFF</div>
+    <ul class="list">
+      <li>2 supplier invoices → <b>Deadlines</b> above <span class="d">· say "show invoices" to review</span></li>
+      <li>Website quote request (full kitchen, Riverside) → <b>Sales</b> <span class="d">· first reply drafted; say "show lead" to approve</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="box-h">ALREADY HANDLED BY SOMEONE ELSE</div>
+    <ul class="list">
+      <li>Okada family delivery: <b>Pat</b> confirmed at 9:10</li>
+      <li>Mr. Henry's lead-time question: <b>Pat</b> answered yesterday</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Handled <span class="n">51</span></h2>
+  <p class="small" style="margin:0 2px">27 receipts · 12 newsletters · 7 tracking · 5 system notices. Nothing here needs you; ask to see any category. I will archive the 51 when you approve.</p>
+</section>
+
+<section class="one">
+  <span class="kicker">The one thing</span>
+  <p>The USD 18,600 Northwind change order. Julia needs the answer before Thursday's board, and you see her today at 2pm. Bring the decision.</p>
+</section>
+
+<div class="ask">Send the 11 drafts, or review them one by one?</div>
+<p class="src">Sources read: sam@ and hello@ (last 48 h + unanswered from 14 days), sales WhatsApp, Google Calendar. Not read: personal calendar (set to busy/free only).</p>
+
+<section>
+  <h2>Draft texts</h2>
+  <div class="card">
+    <div class="draft">
+      <div class="to"><span><b>1. Dana Souza</b> · WhatsApp · reschedule</span><button class="copy">Copy</button></div>
+      <div class="orig">She asked to move Thursday's site visit. Free times: Thu 10:00, Thu 16:30, Fri 9:00.</div>
+      <pre>Hey Dana, I can do Thursday at 10:00 or 16:30, or Friday at 9:00. Which works best?</pre>
+    </div>
+    <div class="draft">
+      <div class="to"><span><b>2. Marina Alves</b> · Email · warranty</span><button class="copy">Copy</button></div>
+      <div class="orig">"How long is the warranty on the hinges?"</div>
+      <pre>Hi Marina,
+The hinges carry a 5-year warranty. If anything goes wrong before then, just let me know.
+Thanks, Sam</pre>
+    </div>
+    <div class="draft">
+      <div class="to"><span><b>Outside the batch · Mrs. Hale</b> · WhatsApp · acknowledgement</span><button class="copy">Copy</button></div>
+      <div class="orig">Second message: wardrobe door misaligned after the install.</div>
+      <pre>Mrs. Hale, that door should not have been left like that after the install. I'm looking into it now and I'll call you today.</pre>
+    </div>
+    <div class="draft">
+      <div class="to"><span><b>Outside the batch · Agenda: Northwind meeting at 2pm</b> · for you</span><button class="copy">Copy</button></div>
+      <div class="orig">Meeting with no agenda. Built from your last 3 conversations with Julia.</div>
+      <pre>1. Common-area cabinets change order: <span class="mark">[YES/NO — you decide] · [AMOUNT — you decide]</span>
+2. Tower B installation schedule
+3. Open item: 12th-floor electrical plan (promised by them on Oct 28)</pre>
+    </div>
+    <p class="small" style="padding:0 18px 16px;margin:0">(…the other 9 drafts follow the same format.)</p>
+  </div>
+</section>
+
+</div>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.closest('.draft').querySelector('pre').innerText;
+    var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1400)};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){})}
+  });
+});
+</script>
+</body>
+</html>

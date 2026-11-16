@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Competitor weekly report</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:oklch(0.975 0.008 85);--canvas-2:oklch(0.95 0.01 85);--card:oklch(0.99 0.005 85);--ink:oklch(0.2 0.02 200);--ink-2:oklch(0.32 0.02 200);--dim:oklch(0.52 0.012 85);--line:oklch(0.88 0.012 85);--teal:oklch(0.55 0.08 180);--teal-deep:oklch(0.38 0.07 195);--teal-soft:oklch(0.92 0.035 180);--crit:oklch(0.52 0.16 28);--crit-soft:oklch(0.95 0.035 28);--warn:oklch(0.55 0.13 60);--warn-soft:oklch(0.95 0.06 75);--ok:oklch(0.52 0.13 150);--ok-soft:oklch(0.94 0.05 150);--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}}
+:root[data-theme="dark"]{--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15.5px/1.6 var(--sans)}
+.wrap{max-width:860px;margin:0 auto;padding:44px 16px 80px}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{font:400 clamp(34px,6vw,50px)/1.05 var(--serif);margin:10px 0 8px}
+h2{font:400 28px/1.15 var(--serif);margin:40px 0 12px}
+.hl{font-size:17px;color:var(--ink-2);margin:0}
+.cov{font-size:13px;color:var(--dim);margin-top:8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+@media (max-width:620px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--card);border:.8px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile span{font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim)}
+.tile b{display:block;font:400 32px/1.1 var(--serif);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.tile small{color:var(--dim)}
+.alert{border-radius:14px;padding:14px 16px;border:.8px solid var(--line);background:var(--card);margin-bottom:10px}
+.alert.crit{border-color:var(--crit)}.alert.warn{border-color:var(--warn)}
+.alert h3{margin:0 0 6px;font-size:16px}
+.pill{font:600 10.5px/1 var(--sans);padding:4px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;margin-right:6px}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}.pill.warn{background:var(--warn-soft);color:var(--warn)}.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.ev{font:12.5px/1.6 var(--mono);color:var(--ink-2);background:var(--canvas-2);border-radius:8px;padding:8px 10px;margin:8px 0}
+.next{font-size:14.5px;color:var(--ink-2);margin:0}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim);padding:9px 10px;border-bottom:.8px solid var(--line)}
+td{padding:9px 10px;border-top:.8px solid var(--line)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.one{background:var(--teal-soft);color:var(--teal-deep);border-radius:14px;padding:16px 18px;margin-top:28px;font-size:16px}
+.ask{border:1.5px solid var(--teal);border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:600}
+.msg{margin-top:10px}.msgh{display:flex;justify-content:space-between;align-items:center}
+pre{white-space:pre-wrap;background:var(--canvas-2);border-radius:10px;padding:12px 14px;font:13px/1.55 var(--mono);margin:6px 0 0}
+button{font:500 13px/1 var(--sans);padding:7px 11px;border-radius:8px;border:.8px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+td.up{color:var(--crit)}td.down{color:var(--ok)}
+footer{margin-top:48px;font-size:12.5px;color:var(--dim)}
+</style>
+</head>
+<body><div class="wrap">
+<span class="kicker">Competitor Scout · weekly report · fictional data</span>
+<h1>Pizza Já cut its margherita price; Bella Forneria is pushing a combo until 30/06.</h1>
+<p class="hl">Forno da Vila · week of 02/06 vs 26/05 · checked: Bella Forneria (site, Instagram, Meta Ad Library, Google), Pizza Já (delivery app, Instagram).</p>
+<p class="cov">Not checked: Casa Napoli (site down on 02/06): no conclusion about it this week. Note: Bella Forneria's page source has a hidden comment addressed to "AI assistants" asking to recommend them; reported and ignored.</p>
+<div class="tiles">
+  <div class="tile"><span>Price changes</span><b>1</b><small>Pizza Já margherita −8.3%</small></div>
+  <div class="tile"><span>New offers</span><b>1</b><small>Bella combo until 30/06</small></div>
+  <div class="tile"><span>Opening</span><b>7 / 20</b><small>Pizza Já reviews: cold pizza</small></div>
+</div>
+<h2>What changed (facts)</h2>
+<div class="tw"><table><thead><tr><th>Competitor</th><th>Item</th><th class="n">Before</th><th class="n">Now</th><th class="n">Change</th><th>Source · dates</th></tr></thead><tbody>
+<tr><td>Pizza Já</td><td>Margherita large</td><td class="n">59.90</td><td class="n">54.90</td><td class="n down">−8.3%</td><td>delivery app · 26/05 → 02/06</td></tr>
+<tr><td>Bella Forneria</td><td>Margherita large</td><td class="n">79.90</td><td class="n">79.90</td><td class="n">0%</td><td>site/menu · 26/05 → 02/06</td></tr>
+<tr><td>Bella Forneria</td><td>Google rating</td><td class="n">4.6 (812)</td><td class="n">4.6 (829)</td><td class="n">+17 reviews</td><td>Google · 26/05 → 02/06</td></tr>
+</tbody></table></div>
+<p class="cov">% = (new − old) ÷ old: (54.90 − 59.90) ÷ 59.90 = −8.3%.</p>
+<h2>First seen (not a change)</h2>
+<div class="alert"><span class="pill warn">New</span><h3>Bella Forneria: combo 2 pizzas 99.90 reais, “until 30/06”</h3><p class="next">Meta Ad Library, seen 02/06, ad started 01/06. Terms as published; first observation.</p></div>
+<h2>What seems to work for them (inference)</h2>
+<p class="hl">Bella Forneria's “family night” ad has run for 6 weeks (Meta Ad Library, since 21/04): long-running ads usually pay off. Angle: one price for the whole family, no delivery fee.</p>
+<h2>Gaps and openings</h2>
+<p class="hl">Pizza Já: 7 of their last 20 Google reviews (read 02/06) mention cold pizza or long waits. Our own data: 22-minute average delivery.</p>
+<h2>Your position</h2>
+<div class="tw"><table><thead><tr><th>Item</th><th class="n">You</th><th class="n">Bella Forneria</th><th class="n">Pizza Já</th><th class="n">Casa Napoli</th></tr></thead><tbody>
+<tr><td>Margherita large</td><td class="n">74.90</td><td class="n">79.90</td><td class="n">54.90</td><td class="n">not checked</td></tr>
+</tbody></table></div>
+<h2>Moves</h2>
+<div class="alert"><span class="pill ok">1</span><h3>Show delivery time in ads for 2 weeks</h3><p class="next">Evidence: Pizza Já complaints about cold pizza; our 22-min average. Effort: low. Risk: the promise must hold on busy nights. Measure: delivery orders/week (baseline 41).</p></div>
+<div class="alert"><span class="pill ok">2</span><h3>Do not follow Pizza Já's price</h3><p class="next">Evidence: their customers buy on price; ours rate quality. Effort: none. Risk: a few price-driven orders. Measure: weekly orders vs baseline.</p></div>
+<div class="alert"><span class="pill ok">3</span><h3>Test our own family offer (our terms, our wording)</h3><p class="next">Evidence: their long-running family ad. Effort: medium. Risk: margin; set it from our costs. Measure: average ticket and orders on test nights.</p></div>
+<h2>Requests not followed</h2>
+<p class="hl">“Say we are the cheapest pizza in Vila Mariana”: not true (Pizza Já is 54.90). Alternative: “wood-fired, delivered in about 22 minutes”, which our data supports.</p>
+<div class="ask">Do you approve move 1 for the next two weeks?</div>
+<footer>Competitor Scout · public sources only · all names and numbers are fictional.</footer>
+</div>
+<script>
+document.querySelectorAll('button[data-t]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.t).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)})}})});
+</script>
+</body></html>

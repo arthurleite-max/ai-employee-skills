@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ads morning review</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:oklch(0.975 0.008 85);--canvas-2:oklch(0.95 0.01 85);--card:oklch(0.99 0.005 85);--ink:oklch(0.2 0.02 200);--ink-2:oklch(0.32 0.02 200);--dim:oklch(0.52 0.012 85);--line:oklch(0.88 0.012 85);--teal:oklch(0.55 0.08 180);--teal-deep:oklch(0.38 0.07 195);--teal-soft:oklch(0.92 0.035 180);--crit:oklch(0.52 0.16 28);--crit-soft:oklch(0.95 0.035 28);--warn:oklch(0.55 0.13 60);--warn-soft:oklch(0.95 0.06 75);--ok:oklch(0.52 0.13 150);--ok-soft:oklch(0.94 0.05 150);--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}}
+:root[data-theme="dark"]{--canvas:oklch(0.19 0.012 200);--canvas-2:oklch(0.235 0.014 200);--card:oklch(0.215 0.013 200);--ink:oklch(0.95 0.008 85);--ink-2:oklch(0.85 0.01 85);--dim:oklch(0.7 0.012 85);--line:oklch(0.31 0.014 200);--teal:oklch(0.74 0.09 180);--teal-deep:oklch(0.82 0.08 182);--teal-soft:oklch(0.3 0.045 185);--crit:oklch(0.75 0.14 28);--crit-soft:oklch(0.3 0.06 28);--warn:oklch(0.8 0.12 75);--warn-soft:oklch(0.32 0.05 70);--ok:oklch(0.78 0.13 150);--ok-soft:oklch(0.3 0.05 150)}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15.5px/1.6 var(--sans)}
+.wrap{max-width:860px;margin:0 auto;padding:44px 16px 80px}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{font:400 clamp(34px,6vw,50px)/1.05 var(--serif);margin:10px 0 8px}
+h2{font:400 28px/1.15 var(--serif);margin:40px 0 12px}
+.hl{font-size:17px;color:var(--ink-2);margin:0}
+.cov{font-size:13px;color:var(--dim);margin-top:8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+@media (max-width:620px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--card);border:.8px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile span{font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim)}
+.tile b{display:block;font:400 32px/1.1 var(--serif);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.tile small{color:var(--dim)}
+.alert{border-radius:14px;padding:14px 16px;border:.8px solid var(--line);background:var(--card);margin-bottom:10px}
+.alert.crit{border-color:var(--crit)}.alert.warn{border-color:var(--warn)}
+.alert h3{margin:0 0 6px;font-size:16px}
+.pill{font:600 10.5px/1 var(--sans);padding:4px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;margin-right:6px}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}.pill.warn{background:var(--warn-soft);color:var(--warn)}.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.ev{font:12.5px/1.6 var(--mono);color:var(--ink-2);background:var(--canvas-2);border-radius:8px;padding:8px 10px;margin:8px 0}
+.next{font-size:14.5px;color:var(--ink-2);margin:0}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font:500 11px/1 var(--mono);text-transform:uppercase;color:var(--dim);padding:9px 10px;border-bottom:.8px solid var(--line)}
+td{padding:9px 10px;border-top:.8px solid var(--line)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.one{background:var(--teal-soft);color:var(--teal-deep);border-radius:14px;padding:16px 18px;margin-top:28px;font-size:16px}
+.ask{border:1.5px solid var(--teal);border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:600}
+.msg{margin-top:10px}.msgh{display:flex;justify-content:space-between;align-items:center}
+pre{white-space:pre-wrap;background:var(--canvas-2);border-radius:10px;padding:12px 14px;font:13px/1.55 var(--mono);margin:6px 0 0}
+button{font:500 13px/1 var(--sans);padding:7px 11px;border-radius:8px;border:.8px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+footer{margin-top:48px;font-size:12.5px;color:var(--dim)}
+</style>
+</head>
+<body><div class="wrap">
+<span class="kicker">Ads Manager · morning review · fictional data</span>
+<h1>Google search is cheap and capped; one Meta ad is tired and one is wasting money.</h1>
+<p class="hl">Brightway Dental · Fri 12/06 · 05–11/06 vs 29/05–04/06 · sources: Google Ads, Meta Ads, scheduling system · nothing was changed.</p>
+<div class="tiles">
+  <div class="tile"><span>Pace</span><b>106%</b><small>1,560 ÷ 11 × 30 = 4,254.55 of 4,000</small></div>
+  <div class="tile"><span>Cost per new patient</span><b>156</b><small>1,560 ÷ 10 · target 180</small></div>
+  <div class="tile"><span>Changes to approve</span><b>3</b><small>see the list</small></div>
+</div>
+<h2>Campaigns (05–11/06)</h2>
+<div class="tw"><table><thead><tr><th>Campaign</th><th class="n">Spend</th><th class="n">Leads</th><th class="n">CPL</th><th class="n">New patients</th><th class="n">Cost/patient</th></tr></thead><tbody>
+<tr><td>Google · Search check-up</td><td class="n">520.00</td><td class="n">26</td><td class="n">20.00</td><td class="n">6</td><td class="n">86.67</td></tr>
+<tr><td>Meta · Check-up leads</td><td class="n">1,040.00</td><td class="n">25</td><td class="n">41.60</td><td class="n">4</td><td class="n">260.00</td></tr>
+</tbody></table></div>
+<p class="cov">CPL = spend ÷ leads (520 ÷ 26 = 20.00). Patients from the scheduling system; Meta also reports 9 "conversions", shown but never added to Google's.</p>
+<h2>Flags</h2>
+<div class="alert warn"><span class="pill warn">Fatigue</span><h3>Meta “Smile video”: CTR 1.60% → 0.90% (−43.8%), frequency 3.6</h3><p class="next">Same people seeing it too often. Keep the offer, change the creative.</p></div>
+<div class="alert crit"><span class="pill crit">Waste</span><h3>Meta “Offer card”: 74.00 spent, 0 leads (2 × 35 = 70)</h3><p class="next">Enough spend to judge. Pause candidate.</p></div>
+<div class="alert"><span class="pill ok">Scale</span><h3>Google search: CPL 20.00 ≤ 24.50 (70% of 35), 26 leads, limited by budget</h3><p class="next">Room to grow in a small step.</p></div>
+<h2>Changes to approve</h2>
+<div class="alert"><span class="pill ok">1</span><h3>Pause Meta “Offer card”</h3><p class="next">Why: 74.00 with 0 leads. Effect: saves about 10/day. Check: campaign CPL on 19/06.</p></div>
+<div class="alert"><span class="pill ok">2</span><h3>Google search budget +15% (from 75 to 86.25 a day)</h3><p class="next">Why: cheapest patients, capped. Risk: CPL may rise; revert if above 30 by 16/06.</p></div>
+<div class="alert"><span class="pill ok">3</span><h3>Trim Meta budget 5% to keep the month within 4,000</h3><p class="next">Why: pace 106.4%. Check: pace on 19/06.</p></div>
+<h2>New ad variations (compliant)</h2>
+<div class="msg"><div class="msgh"><b>Variation 1 · tests the hook</b><button data-t="v1">Copy</button></div><pre id="v1">Primary text: Saturday check-ups for the whole family. Rated 4.8 on Google (312 reviews).
+Headline: Book a check-up for 49
+CTA: Book now · Visual: our real reception on a Saturday morning</pre></div>
+<div class="ask">Approve changes 1, 2 and 3?</div>
+<footer>Ads Manager · read-only · all names and numbers are fictional.</footer>
+</div>
+<script>
+document.querySelectorAll('button[data-t]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.t).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)})}})});
+</script>
+</body></html>

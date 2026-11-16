@@ -1,0 +1,25 @@
+{
+  "title": "Forno da Vila — catering proposal (fictional)",
+  "theme": {"accent": "#B5532F", "dark": "#2B2522", "light": "#FAF6F0", "font": "Calibri"},
+  "slides": [
+    {"layout": "title", "title": "Wood-fired pizza for your office, every Friday", "subtitle": "Catering proposal for Vila Office Park · June 2026 · fictional example",
+     "notes": "Open with the problem they told us about: lunch on Fridays is always late and cold."},
+    {"layout": "bullets", "title": "Friday lunch is the moment your team looks forward to", "bullets": [
+      "120 people in the building, lunch between 12:00 and 13:30",
+      "Today: three delivery apps, 40+ minutes, cold food",
+      "Goal: one order, on time, hot, inside the budget"], "source": "Meeting with the facilities team, 28/05",
+     "notes": "Repeat their words; do not add numbers they did not give us."},
+    {"layout": "number", "title": "We deliver in about 22 minutes from our oven to your door", "number": "22 min",
+     "caption": "Average delivery time in May (412 orders), measured by our order system", "source": "Forno da Vila order system, May 2026",
+     "notes": "Our own measured average; say it is an average, not a promise."},
+    {"layout": "chart", "title": "Orders grew every month this year", "chart": {"data": [["Jan", 310], ["Feb", 335], ["Mar", 362], ["Apr", 390], ["May", 412]], "unit": ""},
+     "source": "Forno da Vila order system, Jan–May 2026", "notes": "From 310 to 412 orders: (412 − 310) ÷ 310 = +32.9%."},
+    {"layout": "two", "title": "Two simple options, both with hot delivery at 12:00", "left": ["Option A · 20 pizzas", "Mixed flavours, drinks apart", "Price per Friday: [owner to confirm]"],
+     "right": ["Option B · 30 pizzas + salads", "Vegetarian choices labelled", "Price per Friday: [owner to confirm]"], "source": "Prices to be confirmed by Forno da Vila",
+     "notes": "Do not quote prices until the owner confirms them."},
+    {"layout": "quote", "quote": "The pizza arrived hot and on time for our 60-person meeting.", "author": "Marina S., office manager (quoted with permission)",
+     "notes": "Testimonial used with written permission; no contact details on the slide."},
+    {"layout": "bullets", "title": "Next step: a free tasting on Friday 12/06", "bullets": ["We bring 6 pizzas at 12:00", "Your team votes on the flavours", "You decide after tasting"],
+     "notes": "End with one clear ask."}
+  ]
+}

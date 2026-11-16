@@ -1,0 +1,6 @@
+# One regular expression per line. Lines starting with # are ignored.
+# Internal names, real clients, test-case data and anything that must never reach the public folder.
+(?i)acme internal
+(?i)project falcon
+(?i)\bjane\.doe\b
+(?i)crumb & co test

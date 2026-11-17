@@ -13,8 +13,8 @@ too loose; the format is not too tight.
    messages since yesterday · 4 need you · 3 meetings, the 2pm is the one that matters."*
 2. **Needs you**: ranked by consequence. Each item: who, the ask in one line, amount/deadline, how long
    they have been waiting, what happens if it waits, and whether there is a supporting draft.
-3. **Today's calendar**: external meetings with a suggested focus; conflicts; largest free block; what
-   early tomorrow needs prepared today.
+3. **Today's calendar**: external meetings with a suggested focus; conflicts today and in the next 7
+   days (with the date); largest free block; what early tomorrow needs prepared today.
 4. **Promises and deadlines**: promises coming due, who is waiting on the owner, deadlines in the next 7
    days, drafted follow-ups.
 5. **Drafts ready**: table of recipient · channel · subject · one-line summary. Group similar ones ("3
@@ -32,7 +32,7 @@ too loose; the format is not too tight.
 
 ## The approval question
 
-One question, two possible answers:
+One question, two possible answers. Write the real number of drafts; never leave a placeholder ("N").
 
 ```
 Send the 11 drafts, or review them one by one?

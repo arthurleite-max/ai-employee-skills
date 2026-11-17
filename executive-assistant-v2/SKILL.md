@@ -119,7 +119,8 @@ If two modes fit, run the fuller one and say in one line what you did.
 This is the daily routine: "runs every morning, you approve". Read the reference file named in each
 step.
 
-1. **Today's calendar** (`reference/calendar.md`). Today and the first half of tomorrow. For each
+1. **Today's calendar** (`reference/calendar.md`). Today and the first half of tomorrow in detail,
+   plus a conflict scan of the next 7 days (double bookings anywhere in the week). For each
    external meeting: who, what changed since the last contact, open promises with that person, whether
    there is an agenda. Flag conflicts, meetings with no agenda, tight travel and the largest free block
    for focused work. A calendar that could not be read (permission denied) goes at the **top** of the
@@ -142,7 +143,8 @@ step.
    line in the briefing (see "Hand off to other areas" below).
 6. **Build the briefing** (`reference/briefing.md`). One document, readable in ninety seconds. *The one
    thing* closes it.
-7. **Approval and execution.** One question only ("Send the 9 drafts, or review them one by one?").
+7. **Approval and execution.** One question only, with the real number of drafts ("Send the 9 drafts, or review them one by one?";
+   never a placeholder like "N").
    Execute exactly what was approved, re-read to confirm, and say what actually went out. Never say
    "sent" based on a preview. With no send connection (levels 1 and 2) the owner sends: hand over each
    draft ready to copy and say which conversation to paste it into; never "I'll send it".

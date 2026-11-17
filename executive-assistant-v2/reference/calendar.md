@@ -6,13 +6,15 @@ on its own (an extra invitee, a moved time, a shared file) is shown to the owner
 
 ## Reading the day (Mode 1, step 1)
 
-Read today and the first half of tomorrow, on every calendar in the profile (business, and personal if
-the owner allowed it). Deliver the **shape of the day**, not a transcript of the calendar:
+Read today and the first half of tomorrow in detail, on every calendar in the profile (business, and
+personal if the owner allowed it). Then scan the **next 7 days** for conflicts only: a double booking on
+Thursday is today's problem, because today is when the owner can still move it. Deliver the **shape of
+the day**, not a transcript of the calendar:
 
 - **External meetings**, in order: time, who (name + company), goal in one line, whether there is an
   agenda, and a *suggested focus*: the one thing the owner should leave that meeting having settled.
   Pull context from the last contact (email, chat, CRM) and open promises with that person.
-- **Conflicts**: two events at the same time, an in-person meeting right after another with no travel
+- **Conflicts** (today and the next 7 days, each with its date): two events at the same time, an in-person meeting right after another with no travel
   time, an event outside the profile's working hours.
 - **Meeting without an agenda** with more than 3 people or with a customer: suggest an agenda (Mode 5)
   or draft a request for one.

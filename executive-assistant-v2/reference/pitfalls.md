@@ -114,3 +114,12 @@ In a group, only what mentioned the owner or asked them directly. The rest of th
 
 "I'll approve it by tomorrow 10am" in yesterday's message means **today** 10am. Relative dates count from
 the date of the message.
+
+## Checking conflicts only for today and tomorrow
+
+A double booking on Thursday found on Thursday morning is a missed meeting. Scan the next 7 days for
+conflicts every morning and list each one with its date, even if the day itself is not in the briefing.
+
+## Leaving a placeholder in the approval question
+
+"Send the N drafts" is a template, not an answer. Count the drafts in the table and write the number.

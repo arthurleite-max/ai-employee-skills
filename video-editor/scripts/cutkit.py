@@ -28,6 +28,12 @@ def run(cmd, capture=True):
     return p
 
 
+def graph_file_option():
+    # ffmpeg 7+ reads a filter graph from a file with "-/filter_complex"; older builds use -filter_complex_script
+    m = re.search(r"version n?(\d+)", run(["ffmpeg", "-version"]).stdout)
+    return "-/filter_complex" if m and int(m[1]) >= 7 else "-filter_complex_script"
+
+
 def probe(path):
     out = run(["ffprobe", "-v", "error", "-show_entries",
                "format=duration:stream=codec_type,width,height,r_frame_rate,channels,sample_rate",
@@ -114,7 +120,7 @@ def finish(p):
 
 
 def load_plan(path):
-    p = json.load(open(path, encoding="utf-8"))
+    p = json.load(open(path, encoding="utf-8-sig"))
     return finish(p)
 
 
@@ -127,23 +133,35 @@ def render(src, plan_p, out, vertical, preview):
         vf.append("crop=ih*9/16:ih:(iw-ih*9/16)/2:0,scale=1080:1920")
     elif preview and has_video:
         vf.append("scale=-2:720")
-    with tempfile.TemporaryDirectory() as tmp:
-        parts = []
-        for i, s in enumerate(plan_p["segments"]):
-            d = s["duration"]
-            part = os.path.join(tmp, f"p{i:03d}.mkv")
-            af = f"afade=t=in:st=0:d=0.03,afade=t=out:st={max(0.0, d - 0.03):.3f}:d=0.03"
-            cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{s['in']:.3f}", "-i", src, "-t", f"{d:.3f}"]
-            if has_video:
-                cmd += ["-vf", ",".join(vf) if vf else "null", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-                        "-pix_fmt", "yuv420p"]
-            cmd += ["-af", af, "-c:a", "aac", "-b:a", "192k", "-ar", "48000", part]
-            run(cmd); parts.append(part)
-        lst = os.path.join(tmp, "list.txt")
-        with open(lst, "w", encoding="utf-8") as f:
-            f.writelines(f"file '{p}'\n" for p in parts)
-        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst,
-             "-c", "copy", "-movflags", "+faststart", out])
+    # single pass (trim + concat): no ~20 ms AAC padding per join, which drifts captions out of sync
+    fps = info.get("fps") or 30
+    fps = 30 if fps > 120 else fps  # messaging apps can report 90000
+    fc, labels = [], ""
+    for i, s in enumerate(plan_p["segments"]):
+        d = s["duration"]
+        if has_video:
+            fc.append(f"[0:v]trim=start={s['in']:.3f}:end={s['out']:.3f},setpts=PTS-STARTPTS[v{i}]")
+            labels += f"[v{i}]"
+        fc.append(f"[0:a]atrim=start={s['in']:.3f}:end={s['out']:.3f},asetpts=PTS-STARTPTS,"
+                  f"afade=t=in:st=0:d=0.03,afade=t=out:st={max(0.0, d - 0.03):.3f}:d=0.03[a{i}]")
+        labels += f"[a{i}]"
+    n = len(plan_p["segments"])
+    post = ",".join(vf + [f"fps={fps}"]) if has_video else ""
+    if has_video:
+        fc.append(f"{labels}concat=n={n}:v=1:a=1[vc][ao]")
+        fc.append(f"[vc]{post}[vo]")
+    else:
+        fc.append(f"{labels}concat=n={n}:v=0:a=1[ao]")
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False, encoding="utf-8") as tf:
+        tf.write(";\n".join(fc)); script = tf.name
+    cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", src, graph_file_option(), script]
+    if has_video:
+        cmd += ["-map", "[vo]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p"]
+    cmd += ["-map", "[ao]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]
+    try:
+        run(cmd)
+    finally:
+        os.unlink(script)
     got = probe(out)["duration"]
     diff = round(got - plan_p["new_duration"], 3)
     tol = 0.1 * max(1, len(plan_p["segments"])) ** 0.5
@@ -263,8 +281,8 @@ def main():
     elif a.cmd == "silences":
         print(json.dumps(silences(a.video, a.min, a.noise), indent=1))
     elif a.cmd == "plan":
-        sil = json.load(open(a.silences, encoding="utf-8")) if a.silences else []
-        rem = json.load(open(a.remove, encoding="utf-8")).get("remove", []) if a.remove else []
+        sil = json.load(open(a.silences, encoding="utf-8-sig")) if a.silences else []
+        rem = json.load(open(a.remove, encoding="utf-8-sig")).get("remove", []) if a.remove else []
         print(json.dumps(plan(a.video, sil, rem, a.keep_air, a.pad, a.order), indent=1, ensure_ascii=False))
     elif a.cmd == "render":
         print(json.dumps(render(a.video, load_plan(a.plan), a.o, a.vertical, a.preview), indent=1))

@@ -8,7 +8,9 @@ language. Accept "skip" for any question; defaults are in `templates/profile.exa
 Say in one line which level you are at (see `SKILL.md`): "I can give you a timed cut plan and
 captions to apply in your app" (chat), or "I can cut and render the video here" (agent with ffmpeg).
 If ffmpeg or a transcription tool is missing at level 3, say what it would add; do not install
-anything without the owner's yes.
+anything without the owner's yes. If the owner wants animated captions and graphics ("make it lively"),
+offer the motion add-on and its installs from `reference/motion.md` (Python packages, Node.js, the
+Remotion template, optional model files), including the Remotion licence note for companies.
 
 ## 2. The questions
 

@@ -1,0 +1,20 @@
+{
+  "name": "video-editor-motion",
+  "private": true,
+  "description": "Animated captions and graphics for the Video Editor skill (Remotion).",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts CaptionedVideo"
+  },
+  "dependencies": {
+    "@lobehub/icons-static-svg": "^1.102.0",
+    "@remotion/cli": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.0.0"
+  }
+}

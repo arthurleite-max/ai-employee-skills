@@ -48,9 +48,10 @@ They apply in every mode. No profile setting overrides them.
    (`v1`, `v2`…) with a one-line changelog.
 5. **Rights first.** Use only music, sound effects, footage, images and fonts the owner has the right to
    use: their own files, royalty-free libraries with a licence they accept, or the platform's licensed
-   library at posting time. Never put a commercial song in the file. Never use another brand's logo or
-   a person's face without permission. AI-generated B-roll only with the owner's yes, and say it is
-   generated.
+   library at posting time. Never put a commercial song in the file. Another brand's logo only when the
+   owner asks, for a product actually named in the video, never suggesting endorsement, and listed under
+   *Check before posting*. A person's face only with permission. AI-generated B-roll only with the
+   owner's yes, and say it is generated.
 6. **Flag, don't fix, risky content.** Health, financial, legal, before/after and "guaranteed results"
    claims, prices, competitor mentions and personal data on screen (addresses, plates, other people's
    messages) go to a *Check before posting* list with the timecode. The owner decides.
@@ -147,7 +148,9 @@ than about 0.8 s, highlight words only if the style asks. Output SRT (and burned
 `reference/polish.md`. A cue sheet on the final timeline: B-roll (which file, which in/out, over which
 line, why), graphics (lower third with the profile's name and title, key-point text using only spoken
 words, CTA card), sound effects (sparse, on meaningful moments), music (mood, library source, level
-under speech, ducking). Apply at level 3; deliver as a cue sheet otherwise.
+under speech, ducking). Apply at level 3; deliver as a cue sheet otherwise. For animated word-by-word
+captions, lists, counters, "around me" effects, voice clean-up, speed-up and a light image grade, use
+the motion add-on: `reference/motion.md`. Show stills of the key moments before the full render.
 
 ## Mode 5: revision
 
@@ -175,9 +178,10 @@ owner's own connected account; otherwise give the steps.
 
 | Job | With tools | Without |
 |---|---|---|
-| Transcribe | A local or platform speech-to-text (e.g. an open-source Whisper build) | Owner exports captions from their app |
-| Silences, cuts, render, captions | `scripts/cutkit.py` + ffmpeg | Edit plan applied by hand in the owner's app |
-| Graphics | ffmpeg drawtext, or the owner's app templates | Cue sheet |
+| Transcribe | `scripts/transcribe.py` (faster-whisper, word timing) or any speech-to-text | Owner exports captions from their app |
+| Silences, cuts, render, captions | `scripts/cutkit.py` + `scripts/safe_pauses.py` + ffmpeg | Edit plan applied by hand in the owner's app |
+| Animated captions, graphics, orbit effect | `assets/motion-template` (Remotion) + `scripts/prepare_motion.py`, `scripts/segment_person.py` | Cue sheet |
+| Voice clean-up, speed, image grade | `scripts/prepare_motion.py` (--audio, --speed, --image) | Notes for the owner's app |
 | Music and SFX | Owner's licensed library | Mood and timing only; the owner picks at posting |
 
 Read `reference/safety.md` before working with footage of other people or client material.
@@ -209,6 +213,9 @@ the cut?", "add captions in your brand colours?", "make the 15-second story vers
 - `reference/pitfalls.md`: mistakes that ruin a video or the owner's trust.
 - `templates/profile.example.md`, `templates/project.example.md`: templates.
 - `scripts/cutkit.py`: optional local tool (Python + ffmpeg).
+- `reference/motion.md`: animated captions and graphics, orbit effect, voice and image clean-up.
+- `scripts/transcribe.py`, `scripts/safe_pauses.py`, `scripts/prepare_motion.py`, `scripts/segment_person.py`: motion pipeline.
+- `assets/motion-template/`: Remotion project for the animated version (copy it, then `npm install`).
 - `assets/edit-plan-example.html`: sample edit plan (fictional).
 - `PASTE-INTO-ANY-AI.md`: compact edition for AIs without skills support.
 - `INSTALL.md`: install prompt.

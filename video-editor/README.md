@@ -7,7 +7,9 @@ the raw recording (or its transcript) and your notes, and get:
   length worked out exactly;
 - **captions** that match what you said, word for word, on the new timeline;
 - **B-roll, graphics, sound and music cues** placed on the right lines;
-- **new versions from your notes**, each one kept, with a changelog.
+- **new versions from your notes**, each one kept, with a changelog;
+- optionally, **a lively short-form version**: word-by-word animated captions, titles, lists, counters,
+  icons orbiting around you, a cleaner voice, a slight speed-up and a light image grade.
 
 **It never publishes anything without your "yes".** It never puts words in your mouth, and it warns you
 about risky claims, people on camera without consent and music without rights.
@@ -62,6 +64,7 @@ A full example is in `assets/edit-plan-example.html`.
 | `make a 60-second reel from this webinar` | 1–3 clip options with hook, payoff and length |
 | `add captions` | Verbatim SRT on the final timeline (burned in at agent level) |
 | `polish it` | B-roll, lower third, key-word graphics, sound and music cue sheet |
+| `make it lively` | Animated captions and graphics, voice clean-up, speed-up (agent with the motion add-on) |
 | `shorter` / `move the CTA` / any note | A new version with a changelog |
 | `ready to post` | Title, caption text, hashtags, cover text, from what you said; you post |
 
@@ -86,6 +89,14 @@ python scripts/cutkit.py render raw.mp4 cut-plan.json -o v1/v1.mp4 --vertical
 python scripts/cutkit.py srt transcript.srt cut-plan.json -o v1/captions.srt
 ```
 
+## Optional: the motion add-on
+
+For agents that run code: fast transcription with word timing, pause removal that never eats quiet
+words, and a Remotion template for animated captions, titles, lists, counters, flags and an orbit effect
+that passes behind the speaker. It also cleans the voice (to -14 LUFS), speeds the video up with the
+voice pitch preserved and applies a light image grade. Everything is installed only with your yes; see
+`reference/motion.md`. Remotion is free for individuals and companies of up to 3 people.
+
 ## Troubleshooting
 
 | Problem | Fix |
@@ -104,8 +115,10 @@ python scripts/cutkit.py srt transcript.srt cut-plan.json -o v1/captions.srt
 | `SKILL.md` | The editor itself (read by the AI) |
 | `setup.md` | First-time questions |
 | `PASTE-INTO-ANY-AI.md` | Compact edition for any AI |
-| `reference/` | Cutting, captions, polish, revisions, apps, safety, pitfalls |
+| `reference/` | Cutting, captions, polish, motion, revisions, apps, safety, pitfalls |
 | `templates/` | Profile and project memory |
 | `scripts/cutkit.py` | Optional local cut kit |
+| `scripts/transcribe.py` · `safe_pauses.py` · `prepare_motion.py` · `segment_person.py` | Optional motion pipeline |
+| `assets/motion-template/` | Remotion project for animated captions and graphics |
 | `assets/edit-plan-example.html` | Sample edit plan (fictional) |
 | `LICENSE.md` · `CREDITS.md` | MIT license and credits |
